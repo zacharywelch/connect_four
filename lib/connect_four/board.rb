@@ -18,7 +18,7 @@ module ConnectFour
     end
 
     def won?
-      spaces.any? { |row| row.join.match(/(\w)\1{3}/) }
+      winning_row? || winning_column?
     end
 
     private
@@ -27,6 +27,14 @@ module ConnectFour
       spaces.each_with_index do |space, row|
         break row, column if space[column] == BLANK
       end
+    end
+
+    def winning_row?
+      spaces.any? { |row| row.join.match(/(\w)\1{3}/) }
+    end
+
+    def winning_column?
+      spaces.transpose.any? { |column| column.join.match(/(\w)\1{3}/) }
     end
   end
 end

@@ -72,7 +72,14 @@ describe ConnectFour::Board do
     end
 
     context 'when there is a winning column' do
-      xit { is_expected.to be_won }
+      before do
+        board.drop(1, 'x')
+        board.drop(1, 'x')
+        board.drop(1, 'x')
+        board.drop(1, 'x')
+      end
+
+      it { is_expected.to be_won }
     end
 
     context 'when there is a winning diagonal' do
