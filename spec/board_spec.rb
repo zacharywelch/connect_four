@@ -82,8 +82,44 @@ describe ConnectFour::Board do
       it { is_expected.to be_won }
     end
 
-    context 'when there is a winning diagonal' do
-      xit { is_expected.to be_won }
+    context 'when there is a winning right diagonal' do
+      before do
+        board.drop(1, 'x')
+        
+        board.drop(2, 'o')
+        board.drop(2, 'x')
+
+        board.drop(3, 'x')
+        board.drop(3, 'o')
+        board.drop(3, 'x')
+
+        board.drop(4, 'o')
+        board.drop(4, 'x')
+        board.drop(4, 'o')
+        board.drop(4, 'x')
+      end
+      
+      it { is_expected.to be_won }
+    end
+
+    context 'when there is a winning left diagonal' do
+      before do
+        board.drop(6, 'x')
+        
+        board.drop(5, 'o')
+        board.drop(5, 'x')
+
+        board.drop(4, 'x')
+        board.drop(4, 'o')
+        board.drop(4, 'x')
+
+        board.drop(3, 'o')
+        board.drop(3, 'x')
+        board.drop(3, 'o')
+        board.drop(3, 'x')
+      end
+      
+      it { is_expected.to be_won }
     end
   end  
 end
