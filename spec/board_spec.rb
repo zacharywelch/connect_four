@@ -7,12 +7,12 @@ describe ConnectFour::Board do
   describe '#new' do
 
     let(:spaces) do
-      [[nil, nil, nil, nil, nil, nil, nil], 
-       [nil, nil, nil, nil, nil, nil, nil], 
-       [nil, nil, nil, nil, nil, nil, nil], 
-       [nil, nil, nil, nil, nil, nil, nil], 
-       [nil, nil, nil, nil, nil, nil, nil], 
-       [nil, nil, nil, nil, nil, nil, nil]]
+      [[' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+       [' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+       [' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+       [' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+       [' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+       [' ', ' ', ' ', ' ', ' ', ' ', ' ']]
     end
     
     it { is_expected.to be_a ConnectFour::Board }
@@ -51,6 +51,32 @@ describe ConnectFour::Board do
     context 'when board is full' do
       subject(:board) { ConnectFour::Board.new('x') }
       it { is_expected.to be_a_draw }
+    end
+  end
+
+  describe 'won?' do
+    
+    context 'when there are no winners' do
+      it { is_expected.to_not be_won }
+    end
+
+    context 'when there is a winning row' do
+      before do
+        board.drop(1, 'x')
+        board.drop(2, 'x')
+        board.drop(3, 'x')
+        board.drop(4, 'x')
+      end
+
+      it { is_expected.to be_won }
+    end
+
+    context 'when there is a winning column' do
+      xit { is_expected.to be_won }
+    end
+
+    context 'when there is a winning diagonal' do
+      xit { is_expected.to be_won }
     end
   end  
 end
