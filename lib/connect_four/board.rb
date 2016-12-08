@@ -29,16 +29,20 @@ module ConnectFour
       end
     end
 
+    def winning?(lines)
+      lines.any? { |line| line.join.match(/(\w)\1{3}/) }
+    end
+
     def winning_row?
-      spaces.any? { |row| row.join.match(/(\w)\1{3}/) }
+      winning? spaces
     end
 
     def winning_column?
-      spaces.transpose.any? { |column| column.join.match(/(\w)\1{3}/) }
+      winning? spaces.transpose
     end
 
     def winning_diagonal?
-      diagonals.any? { |diagonal| diagonal.join.match(/(\w)\1{3}/) }
+      winning? diagonals
     end
 
     def diagonals
