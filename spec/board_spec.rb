@@ -41,4 +41,16 @@ describe ConnectFour::Board do
       expect(board.spaces[0][1]).to eq 'x'
     end
   end
+
+  describe 'draw?' do
+
+    context 'when board is not full' do
+      it { is_expected.to_not be_a_draw }
+    end
+
+    context 'when board is full' do
+      subject(:board) { ConnectFour::Board.new('x') }
+      it { is_expected.to be_a_draw }
+    end
+  end  
 end
