@@ -29,4 +29,16 @@ describe ConnectFour::Board do
       expect(board.spaces).to eq spaces
     end
   end
+
+  describe '#drop' do
+
+    it 'places disc on the board' do
+      expect(board.drop(0, 'x')).to be_truthy
+    end
+
+    it 'places disc at first available spot' do
+      board.drop(1, 'x')
+      expect(board.spaces[0][1]).to eq 'x'
+    end
+  end
 end
