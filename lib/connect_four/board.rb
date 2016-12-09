@@ -28,7 +28,10 @@ module ConnectFour
         row.each { |column| print "#{column}|" }
         puts "\n"
       end
+      puts " 1 2 3 4 5 6 7 "
     end
+
+    alias :draw :to_s
 
     private
 

@@ -15,5 +15,26 @@ module ConnectFour
     def over?
       board.draw? || board.winner?
     end
+
+    def next_move
+      switch_players
+      board.draw
+      printf "#{current_player.name} what's your move? "
+      gets.chomp.to_i
+    end
+
+    def play
+      until over?
+        move = next_move
+        board.drop(move - 1, current_player.disc)
+      end
+      if board.winner?
+        board.draw
+        puts "#{current_player} won!"
+      else
+        board.draw
+        puts "It's a draw!"
+      end
+    end
   end
 end
