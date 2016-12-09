@@ -21,6 +21,15 @@ module ConnectFour
       winning_row? || winning_column? || winning_diagonal?
     end
 
+    def to_s
+      puts "\n"
+      spaces.reverse.each do |row|
+        print "|"
+        row.each { |column| print "#{column}|" }
+        puts "\n"
+      end
+    end
+
     private
 
     def next_available_space(column)
