@@ -10,6 +10,10 @@ module ConnectFour
 
     def switch_players
       @current_player, @other_player = @other_player, @current_player
-    end    
+    end
+
+    def over?
+      board.draw? || board.winner?
+    end
   end
 end

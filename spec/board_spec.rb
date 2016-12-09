@@ -54,10 +54,10 @@ describe ConnectFour::Board do
     end
   end
 
-  describe 'won?' do
+  describe 'winner?' do
 
     context 'when there are no winners' do
-      it { is_expected.to_not be_won }
+      it { is_expected.to_not be_winner }
     end
 
     context 'when there is a winning row' do
@@ -68,7 +68,7 @@ describe ConnectFour::Board do
         board.drop(4, 'x')
       end
 
-      it { is_expected.to be_won }
+      it { is_expected.to be_winner }
     end
 
     context 'when there is a winning column' do
@@ -79,7 +79,7 @@ describe ConnectFour::Board do
         board.drop(1, 'x')
       end
 
-      it { is_expected.to be_won }
+      it { is_expected.to be_winner }
     end
 
     context 'when there is a winning right diagonal' do
@@ -99,7 +99,7 @@ describe ConnectFour::Board do
         board.drop(4, 'x')
       end
 
-      it { is_expected.to be_won }
+      it { is_expected.to be_winner }
     end
 
     context 'when there is a winning left diagonal' do
@@ -119,7 +119,7 @@ describe ConnectFour::Board do
         board.drop(3, 'x')
       end
 
-      it { is_expected.to be_won }
+      it { is_expected.to be_winner }
     end
   end  
 end

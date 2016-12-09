@@ -17,7 +17,7 @@ module ConnectFour
       spaces.flatten.none? { |space| space == BLANK }
     end
 
-    def won?
+    def winner?
       winning_row? || winning_column? || winning_diagonal?
     end
 
